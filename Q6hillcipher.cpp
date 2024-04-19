@@ -44,7 +44,9 @@ string substitution(string plaintext, const int key[3][3], int mod)
 
 int main()
 {
-    string plaintext = "act";
+    string plaintext;
+    cout << "Enter the plaintext (must be a multiple of 3 characters): ";
+    cin >> plaintext;
     int key[3][3] = {{6, 24, 1}, {13, 16, 10}, {20, 17, 15}}; // Example key, 3x3 matrix
     int mod = 26;                                             // Modulus for the characters
 

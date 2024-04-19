@@ -23,11 +23,11 @@ string encrypt(string plaintext, const string& key) {
     }
 
     // Encrypt plaintext
-    for (char c : plaintext) {
+    for (int i = 0; i < plaintext.length(); ++i) {
+        char c = plaintext[i];
         if (isalpha(c)) {
             char base = islower(c) ? 'a' : 'A';
             ciphertext += encryptionMap[tolower(c) - 'a'];
-            // std::cout <<"haha : "<< ciphertext << std::endl;
         } else {
             ciphertext += c; // Non-alphabetic characters remain unchanged
         }
@@ -37,14 +37,18 @@ string encrypt(string plaintext, const string& key) {
 }
 
 int main() {
-    string plaintext = "Dharmendra";
-    
+    string plaintext;
+     cout << "Enter the plaintext: ";
+    getline(cin, plaintext); // Read the entire line of input
     // Generate a random key
     string key = generateRandomKey();
 
     // Encrypt the plaintext
     string ciphertext = encrypt(plaintext, key);
+    cout << "Plaintext:  " << plaintext << endl;
+    cout << "Key:        " << key << endl;
     cout << "Ciphertext: " << ciphertext << endl;
 
     return 0;
 }
+

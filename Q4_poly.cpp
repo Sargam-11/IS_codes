@@ -28,8 +28,16 @@ string encrypt(string plaintext, const string& key) {
 }
 
 int main() {
-    string plaintext = "geeksforgeeks";
-    string key = "ayush"; // Example key
+string plaintext;
+    string key;
+
+    // Prompt the user to enter the plaintext
+    cout << "Enter the plaintext: ";
+    getline(cin, plaintext);
+
+    // Prompt the user to enter the key
+    cout << "Enter the key: ";
+    getline(cin, key);
 
     // Encrypt the plaintext
     string ciphertext = encrypt(plaintext, key);
@@ -37,3 +45,4 @@ int main() {
 
     return 0;
 }
+

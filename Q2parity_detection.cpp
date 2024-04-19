@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 void display(std::vector<int> message)
 {
-    for (auto i = 0; i < message.size(); i++)
+    for (int i = 0; i < message.size(); i++)
     {
         std::cout << message[i];
     }
@@ -13,7 +13,7 @@ int main()
     int temp, parity, count = 0, newCount = 0, receiverParity;
     std::vector<int> message;
     std::cout << "enter message : ";
-    for (auto i = 0; i < 8; i++)
+    for (int i = 0; i < 8; i++)
     {
         std::cin >> temp;
         message.push_back(temp);
@@ -22,7 +22,7 @@ int main()
     std::cin >> parity;
     if (parity == 0)
     {
-        for (auto i = 0; i < message.size(); i++)
+        for (int i = 0; i < message.size(); i++)
         {
             if (message[i] == 1)
             {
@@ -41,7 +41,7 @@ int main()
     }
     else
     {
-        for (auto i = 0; i < message.size(); i++)
+        for (int i = 0; i < message.size(); i++)
         {
             if (message[i] == 1)
             {
@@ -65,7 +65,7 @@ int main()
 
     // on receiver's side.
     
-    for (auto i = 1; i < message.size(); i++)
+    for (int i = 1; i < message.size(); i++)
     {
         if (message[i] == 1)
         {

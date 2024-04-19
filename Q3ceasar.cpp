@@ -5,8 +5,9 @@ using namespace std;
 
 string encrypt(string plaintext, int shift) {
     string ciphertext = "";
-    for (char& c : plaintext) {
-        if (isalpha(c)) {
+for (int i = 0; i < plaintext.length(); ++i) {
+    char c = plaintext[i];
+	        if (isalpha(c)) {
             char base = islower(c) ? 'a' : 'A';
             c = (c - base + shift) % 26 + base;
         }

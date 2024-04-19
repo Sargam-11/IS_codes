@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <exception>
+#include <cstdlib> // Include the <cstdlib> header for the abs function
 
 int findInArray(char chr, char *arr)
 {

@@ -1,6 +1,7 @@
+#include <iostream>
 #include <string>
 #include <vector>
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 std::string railFenceEncrypt(const std::string &text, int key) {
@@ -8,7 +9,8 @@ std::string railFenceEncrypt(const std::string &text, int key) {
     int index = 0;
     int step = 1;
 
-    for (char c : text) {
+    for (int i = 0; i < text.length(); ++i) {
+        char c = text[i];
         rails[index].push_back(c);
         if (index == 0) step = 1;
         else if (index == key - 1) step = -1;
@@ -16,12 +18,16 @@ std::string railFenceEncrypt(const std::string &text, int key) {
     }
 
     std::string cipherText;
-    for (const std::string &rail : rails) cipherText += rail;
+    for (int i = 0; i < rails.size(); ++i) {
+        cipherText += rails[i];
+    }
     return cipherText;
 }
-// 
+
 int main() {
-    std::string text = "defend the east wall";
+    std::string text;
+     cout << "Enter the plaintext: ";
+    getline(cin, text); 
     int key = 3;
 
     std::string cipherText = railFenceEncrypt(text, key);
@@ -29,3 +35,4 @@ int main() {
 
     return 0;
 }
+
