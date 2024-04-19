@@ -5,22 +5,22 @@
 
 using namespace std;
 
-// Function to perform row transposition encryption
+
 string encrypt(const string &plaintext, const vector<int> &permutation)
 {
     int numRows = permutation.size();
     int numCols = (plaintext.length() + numRows - 1) / numRows;
 
     // Create a matrix to store the plaintext characters
-    vector<vector<char> > matrix(numRows, vector<char>(numCols, ' '));
+	vector<vector<char> > matrix(numRows, vector<char>(numCols, ' '));
 
     // Fill the matrix with plaintext characters
     int index = 0;
     for (int col = 0; col < numCols; ++col)
     {
-    	
-        for (int row : permutation)
+        for (size_t i = 0; i < permutation.size(); ++i)
         {
+            int row = permutation[i];        
             if (index < plaintext.length())
             {
                 matrix[row][col] = plaintext[index++];
@@ -34,8 +34,9 @@ string encrypt(const string &plaintext, const vector<int> &permutation)
 
     // Read the ciphertext column by column
     string ciphertext;
-    for (int row : permutation)
+    for (size_t i = 0; i < permutation.size(); ++i)
     {
+        int row = permutation[i];
         for (int col = 0; col < numCols; ++col)
         {
             if (matrix[row][col] != ' ')
@@ -48,11 +49,16 @@ string encrypt(const string &plaintext, const vector<int> &permutation)
     return ciphertext;
 }
 
-int main()
-{
-    string plaintext = "geeks for geeks";
-    vector<int> permutation = {2, 0, 1, 3}; // Example permutation
 
+int main(){
+    string plaintext;
+    cout << "Enter the plaintext : ";
+    cin >> plaintext;
+	 int permutation_array[] = {2, 0, 1, 3}; // Example permutation
+
+    // Initialize the vector using constructor
+    vector<int> permutation(permutation_array, permutation_array + sizeof(permutation_array) / sizeof(permutation_array[0]));
+ 
     // Encrypt the plaintext
     string ciphertext = encrypt(plaintext, permutation);
     cout << "Ciphertext: " << ciphertext << endl;
